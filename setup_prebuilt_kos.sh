@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #
 # Copyright (C) 2023 The TwrpBuilder Open-Source Project
 #
@@ -30,10 +31,10 @@ if [ -d "$ROM_EXTRACT_PATH/vendor_dlkm" ] && [ "$(ls -A $ROM_EXTRACT_PATH/vendor
     MODULES_PATH=1
     COPY_FROM="$ROM_EXTRACT_PATH/vendor_dlkm/lib/modules"
     echo "/vendor_dlkm found. Using module path $MODULES_PATH"
-elif [ -d "$ROM_EXTRACT_PATH/vendor/lib/modules" ] && [ "$(ls -A $ROM_EXTRACT_PATH/vendor/lib/modules)" != "" ]; then
+elif [ -d "$ROM_EXTRACT_PATH/vendor/lib/modules/5.4-gki" ] && [ "$(ls -A $ROM_EXTRACT_PATH/vendor/lib/modules/5.4-gki)" != "" ]; then
     MODULES_PATH=2
-    COPY_FROM="$ROM_EXTRACT_PATH/vendor/lib/modules"
-    echo "/vendor/lib/modules found. Using module path $MODULES_PATH"
+    COPY_FROM="$ROM_EXTRACT_PATH/vendor/lib/modules/5.4-gki/"
+    echo "/vendor/lib/modules/5.4-gki found. Using module path $MODULES_PATH"
 else
     echo "No modules found"
     exit
@@ -41,9 +42,9 @@ fi
 
 echo $COPY_FROM
 
-module_list=($(ls -A ./prebuilt/renoir/modules/1.1/))
+module_list=($(ls -A ./prebuilt/$TARGET_DEVICE/modules/1.1/))
 
 for iterator in ${module_list[*]}; do
     echo "Copying $iterator from $COPY_FROM/$iterator"
-    cp $COPY_FROM/$iterator ./prebuilt/renoir/modules/1.1/
+    cp $COPY_FROM/$iterator ./prebuilt/$TARGET_DEVICE/modules/1.1/
 done
