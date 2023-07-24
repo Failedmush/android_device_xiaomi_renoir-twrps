@@ -19,9 +19,9 @@ TARGET_DEVICE=$1
 
 ROM_EXTRACT_PATH=$2
 
-if [ $TARGET_DEVICE == "" ] || [ $ROM_EXTRACT_PATH == "" ] ; then
-    echo $TARGET_DEVICE $ROM_EXTRACT_PATH
+if [ $# -lt 2 ] ; then
     echo "Usage: setup_prebuilts.sh <device name> <rom dump path>"
+    exit
 fi
 
 MODULES_PATH=0
