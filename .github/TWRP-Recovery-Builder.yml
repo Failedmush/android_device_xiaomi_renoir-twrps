@@ -16,19 +16,19 @@ on:
       DEVICE_TREE:
         description: 'Custom Recovery Tree' 
         required: true
-        default: 'https://github.com/kinguser981/android_device_samsung_a05s.git'
+        default: 'https://github.com/Failedmush/android_device_xiaomi_renoir-twrps.git'
       DEVICE_TREE_BRANCH:
         description: 'Custom Recovery Tree Branch' 
         required: true
-        default: 'android-14'
+        default: 'android-13'
       DEVICE_PATH:
         description: 'Specify your Device Path' 
         required: true
-        default: 'device/samsung/a05s'
+        default: 'device/xiaomi/renoir'
       DEVICE_NAME:
         description: 'Specify your Device Codename' 
         required: true
-        default: 'a05s'
+        default: 'renoir'
       BUILD_TARGET:
         description: 'Specify your Build Target' 
         required: true
